@@ -1,7 +1,7 @@
 Zendo - DI Component
 ====================
 
-Simple api/wrapper to Symfony DependencyInjection Component
+Simple api/wrapper to Symfony Dependency Injection Component
 
 Features
 --------
@@ -31,7 +31,7 @@ Coming soon
 
     "require": {
         "php": ">=5.4.0",
-        "zendo/di": "0.1.0"
+        "zendo/di": "1.0.0"
     }
 
 License
@@ -47,7 +47,7 @@ See the examples directory
 How is it used?
 --------
 
-See the Wiki (Coming soon)
+See the Wiki
 
 Run tests
 --------

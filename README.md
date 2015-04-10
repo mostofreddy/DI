@@ -31,7 +31,7 @@ Coming soon
 
     "require": {
         "php": ">=5.4.0",
-        "zendo/di": "1.0.0"
+        "zendo/di": "1.0.1"
     }
 
 License

@@ -47,8 +47,8 @@ abstract class AbstractBuilder
      */
     public function addConfigurationFile(array $directories, array $files)
     {
-        $this->directories[] = $directories;
-        $this->files[] = $files;
+        $this->directories = array_merge($this->directories, $directories);
+        $this->files = array_merge($this->files, $files);
         return $this;
     }
     /**
@@ -85,8 +85,11 @@ abstract class AbstractBuilder
     {
         $count = count($this->directories);
         for ($i=0; $i<$count; $i++) {
-            $loader = $this->createYamlFileLoaderInstance($containerBuilder, $this->createFileLocatorInstance($this->directories[$i]));
-            foreach ($this->files[$i] as $file) {
+            $loader = $this->createYamlFileLoaderInstance(
+                $containerBuilder, 
+                $this->createFileLocatorInstance($this->directories[$i])
+            );
+            foreach ($this->files as $file) {
                 $loader->load($file);
             }
         }

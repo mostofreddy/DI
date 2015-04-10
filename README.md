@@ -15,7 +15,7 @@ Features
 Version
 --------
 
-__0.1.0__
+__1.0.1__
 
 Install
 --------

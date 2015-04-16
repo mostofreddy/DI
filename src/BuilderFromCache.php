@@ -103,6 +103,35 @@ class BuilderFromCache extends AbstractBuilder
         return $this->classNameCache;
     }
     /**
+     * Agrega un parametro custom al DI.
+     * Este metodo es utilizado cuando se usa cache y existen parametros que al ser calculables no pueden formar parte del 
+     * archivo .yml de configuracion
+     * 
+     * @param string $key   clave del parametro
+     * @param mixed  $value valor del parametro
+     *
+     * @return selg
+     */
+    public function addCustomParameters($key, $value)
+    {
+        $this->customParameters[$key] = $value;
+        return $this;
+    }
+    /**
+     * Agrega al container los parametros custom antes de compilarlo y generar el cache
+     *
+     * @param ContainerBuilder $containerBuilder instancia de ContainerBuilder
+     * 
+     * @return self
+     */
+    protected function setCustomParameters($containerBuilder)
+    {
+        foreach ($this->customParameters as $key => $value) {
+            $containerBuilder->setParameter($key, $value);
+        }
+        return $this;
+    }
+    /**
      * Get an ContainerBuilder
      *
      * @return ContainerBuilder
@@ -114,6 +143,7 @@ class BuilderFromCache extends AbstractBuilder
 
         if (!$containerConfigCache->isFresh()) {
             $containerBuilder = $this->getContainerBuilder();
+            $this->setCustomParameters($containerBuilder);
             $containerBuilder->compile();
             $this->createCache($containerBuilder, $containerConfigCache);
         }

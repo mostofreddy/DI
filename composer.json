@@ -1,7 +1,7 @@
 {
     "name": "zendo/di",
     "description": "Dependecy injection",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "keywords": [],
     "homepage": "https://github.com/mostofreddy/di",
     "type": "library",

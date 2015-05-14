@@ -36,12 +36,12 @@ Instalación
 Licencia
 --------
 
-The MIT License (MIT). Please see License File for more information.
+The MIT License (MIT). Please see [License File](https://github.com/mostofreddy/DI/blob/master/LICENSE.md) for more information.
 
 Ejemplos
 --------
 
-Ver el directorio __examples__
+Ver el directorio [__examples__](https://github.com/mostofreddy/DI/tree/master/examples)
 
 Correr los tests
 ----------------

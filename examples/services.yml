@@ -1,3 +1,0 @@
-services:
-    Dummy:
-        class: Stdclass

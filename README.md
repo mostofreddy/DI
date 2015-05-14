@@ -1,6 +1,8 @@
 Zendo - DI Component
 ====================
 
+[![Build Status](https://travis-ci.org/mostofreddy/DI.svg?branch=master)](https://travis-ci.org/mostofreddy/DI)
+
 Simple proxy/wrapper del componente __Symfony Dependency Injection__
 
 Funcionalidades

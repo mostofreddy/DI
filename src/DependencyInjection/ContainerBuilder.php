@@ -16,7 +16,9 @@
  * @link      http://www.mostofreddy.com.ar
  */
 namespace Zendo\Di\DependencyInjection;
+
 use Symfony\Component\DependencyInjection\ContainerBuilder as SfContainerBuilder;
+
 /**
  * ContainerBuilder
  *
@@ -29,5 +31,4 @@ use Symfony\Component\DependencyInjection\ContainerBuilder as SfContainerBuilder
  */
 class ContainerBuilder extends SfContainerBuilder
 {
-
 }

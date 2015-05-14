@@ -2,14 +2,9 @@
 # Composer
 #---------------------------------#
 vendor
-composer.lock
+#composer.lock
 
 #---------------------------------#
 # Unit tests coverage
 #---------------------------------#
 tests/coverage
-
-#---------------------------------#
-# Examples - cache
-#---------------------------------#
-#examples/cache/*

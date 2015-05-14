@@ -16,10 +16,12 @@
  * @link      http://www.mostofreddy.com.ar
  */
 namespace Zendo\Di\Cache;
+
 use Zendo\Di\AbstractBuilder;
 use Zendo\Di\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\ConfigCache;
 use Symfony\Component\DependencyInjection\Dumper\PhpDumper;
+
 /**
  * BuilderFromCache
  *
@@ -106,9 +108,9 @@ class Builder extends AbstractBuilder
     }
     /**
      * Agrega un parametro custom al DI.
-     * Este metodo es utilizado cuando se usa cache y existen parametros que al ser calculables no pueden formar parte del 
+     * Este metodo es utilizado cuando se usa cache y existen parametros que al ser calculables no pueden formar parte del
      * archivo .yml de configuracion
-     * 
+     *
      * @param string $key   clave del parametro
      * @param mixed  $value valor del parametro
      *
@@ -123,7 +125,7 @@ class Builder extends AbstractBuilder
      * Agrega al container los parametros custom antes de compilarlo y generar el cache
      *
      * @param ContainerBuilder $containerBuilder instancia de ContainerBuilder
-     * 
+     *
      * @return self
      */
     protected function setCustomParameters($containerBuilder)

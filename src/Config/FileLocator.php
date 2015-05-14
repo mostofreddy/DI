@@ -16,7 +16,9 @@
  * @link      http://www.mostofreddy.com.ar
  */
 namespace Zendo\Di\Config;
+
 use Symfony\Component\Config\FileLocator as SfFileLocator;
+
 /**
  * FileLocator
  *

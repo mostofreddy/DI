@@ -47,3 +47,12 @@ Correr los tests
 ----------------
 
 php vendor/bin/phpunit -c tests/phpunit.xml
+
+Validación código estandar
+----------------
+
+php vendor/bin/phpcs --standard=build/travis-ci-phpcs.xml src/
+
+La documentación del estándar de código utilizado se encuentra en el [site de PEAR](https://pear.php.net/manual/en/standards.php)
+
+

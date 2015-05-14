@@ -16,7 +16,9 @@
  * @link      http://www.mostofreddy.com.ar
  */
 namespace Zendo\Di;
+
 use Zendo\Di\AbstractBuilder;
+
 /**
  * Builder
  *
@@ -38,7 +40,4 @@ class Builder extends AbstractBuilder
     {
         return $this->getContainerBuilder();
     }
-
-
-
 }

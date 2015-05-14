@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="Custom PSR2">
+    <description>The PSR2 standard, but warnings at 140 chars.</description>
+
+    <!-- Include the whole PSR2 standard -->
+    <rule ref="PSR2"/>
+
+    <!-- Lines can be no longer than 140 chars -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="140"/>
+        </properties>
+    </rule>
+</ruleset>

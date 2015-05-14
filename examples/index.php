@@ -16,18 +16,25 @@
 
 $rootPath = realpath(__DIR__.'/../');
 require_once $rootPath."/vendor/autoload.php";
+require_once $rootPath."/examples/src/ClassA.php";
 
 
-$config = [$rootPath."/examples/"];
-$files = ['parameters.yml', 'services.yml'];
+$paths = [
+    $rootPath."/examples/config1",
+    $rootPath."/examples/config2",
+];
+$files = ['config.yml'];
 $cacheDir = $rootPath."/examples/cache/";
 $isDebug = true;
 
-$builder = new \Zendo\Di\BuilderFromCache();
-$builder->addConfigurationFile($config, $files)
-    ->setCacheDir($cacheDir)
-    ->setIsDebug($isDebug);
+$builder = new \Zendo\Di\Cache\Builder();
+$builder->addConfigurationFiles($files)
+    ->addConfigurationDirectories($paths);
+
 $container = $builder->get();
 
 echo "<pre>".print_r($container->getParameter('name'), true)."</pre>";
+echo "<pre>".print_r($container->getParameter('year'), true)."</pre>";
 echo "<pre>".print_r($container->get('Dummy'), true)."</pre>";
+
+echo "DONE";

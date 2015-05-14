@@ -1,6 +1,6 @@
 <?php
 /**
- * Builder.php
+ * ClassA.php
  *
  * PHP version 5.4+
  *
@@ -15,10 +15,8 @@
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @link      http://www.mostofreddy.com.ar
  */
-namespace Zendo\Di;
-use Zendo\Di\AbstractBuilder;
 /**
- * Builder
+ * ClassA
  *
  * @category  Di
  * @package   Zendo\Di
@@ -27,18 +25,15 @@ use Zendo\Di\AbstractBuilder;
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @link      http://www.mostofreddy.com.ar
  */
-class Builder extends AbstractBuilder
+class ClassA
 {
     /**
-     * Get an ContainerBuilder
+     * Devuelve el nombre de la clase
      *
-     * @return ContainerBuilder
+     * @return string
      */
-    public function get()
+    public function getName()
     {
-        return $this->getContainerBuilder();
+        return "ClassA";
     }
-
-
-
 }

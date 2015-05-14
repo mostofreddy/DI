@@ -16,15 +16,12 @@
  * @link      http://www.mostofreddy.com.ar
  */
 namespace Zendo\Di;
-use Zendo\Di\ContainerBuilder;
-use Symfony\Component\Config\FileLocator;
+use Zendo\Di\DependencyInjection\ContainerBuilder;
+use Zendo\Di\Config\FileLocator;
+// Symfony - DependencyInjection
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 /**
  * AbstractBuilder
- *
- * Copyright (c) 2015 Federico Lozada Mosto <mosto.federico@gmail.com>
- * For the full copyright and license information, please view the LICENSE file that was distributed
- * with this source code.
  *
  * @category  Di
  * @package   Zendo\Di
@@ -38,25 +35,39 @@ abstract class AbstractBuilder
     protected $directories = [];
     protected $files = [];
     /**
-     * Add directories & configurations files
+     * Add directories to search
      *
-     * @param array $directories [description]
-     * @param array $files       [description]
+     * @param array $directories Paths
      *
      * @return self
      */
-    public function addConfigurationFile(array $directories, array $files)
+    public function addConfigurationDirectories(array $directories)
     {
         $this->directories = array_merge($this->directories, $directories);
+        return $this;
+    }
+    /**
+     * Add configuration filenames
+     *
+     * @param array $files Filenames
+     *
+     * @return self
+     */
+    public function addConfigurationFiles(array $files)
+    {
         $this->files = array_merge($this->files, $files);
         return $this;
     }
     /**
-     * Return directories & configuration files
+     * Return all configuration
      *
-     * @return array
+     * @return array Example:
+     *                  [
+     *                      'directories' => []
+     *                      'files' => []
+     *                  ]
      */
-    public function getConfigurationFile()
+    public function getConfiguration()
     {
         return [
             'directories' => $this->directories,
@@ -83,38 +94,13 @@ abstract class AbstractBuilder
      */
     protected function loadConfigurationFiles(ContainerBuilder $containerBuilder)
     {
-        $count = count($this->directories);
-        for ($i=0; $i<$count; $i++) {
-            $loader = $this->createYamlFileLoaderInstance(
-                $containerBuilder, 
-                $this->createFileLocatorInstance($this->directories[$i])
-            );
+        $fileLocator = new FileLocator();
+        $ymlLoader = new YamlFileLoader($containerBuilder, $fileLocator);
+        foreach ($this->directories as $directory) {
+            $fileLocator->replacePaths($directory);
             foreach ($this->files as $file) {
-                $loader->load($file);
+                $ymlLoader->load($file);
             }
         }
-    }
-    /**
-     * Create an instance of YamlFileLoader
-     *
-     * @param ContainerBuilder $containerBuilder An instance of ContainerBuilder
-     * @param FileLocator      $fileLocator      An instance of FileLocator
-     *
-     * @return YamlFileLoader
-     */
-    protected function createYamlFileLoaderInstance(ContainerBuilder $containerBuilder, FileLocator $fileLocator)
-    {
-        return new YamlFileLoader($containerBuilder, $fileLocator);
-    }
-    /**
-     * Create an instance of FileLocator
-     *
-     * @param string $directory location of the configuration files
-     *
-     * @return FileLocator
-     */
-    protected function createFileLocatorInstance($directory)
-    {
-        return new FileLocator($directory);
     }
 }

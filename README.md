@@ -1,55 +1,49 @@
 Zendo - DI Component
 ====================
 
-Simple api/wrapper to Symfony Dependency Injection Component
+Simple proxy/wrapper del componente __Symfony Dependency Injection__
 
-Features
+Funcionalidades
+---------------
+
++ Api sencilla
+* Generación de cache
++ Permite funcionar modo __dev__ donde detecta automaticamente algún cambio en un archivo yml y regenera el cache
++ Por el momento solo permite archivos de configuracion/servicios en fomato YAML
++ Permite crear una jerarquía de configuración
++ Carga de múltiples archivos y múltiples directorios
+
+Versión
 --------
 
-+ Easy api for create a Dependency Injection Container
-+ Builder from cache
-+ Automatically detects changes in the configuration files and regenerates the cache
-+ Allows only YAML configuration files
-+ Load multiple configuration files
+__1.2.0__
 
-Version
---------
+Instalación
+-----------
 
-__1.0.3__
-
-Install
---------
-
-### Requirements
+### Requerimientos
 
 * PHP 5.4 +
 * [Composer](http://getcomposer.org)
 
 ### Via composer
 
-Coming soon
-
     "require": {
         "php": ">=5.4.0",
-        "zendo/di": "1.0.1"
+        "zendo/di": "1.2.0"
     }
 
-License
+Licencia
 --------
 
 The MIT License (MIT). Please see License File for more information.
 
-Examples
+Ejemplos
 --------
 
-See the examples directory
+Ver el directorio __examples__
 
-How is it used?
---------
+Correr los tests
+----------------
 
-See the Wiki
-
-Run tests
---------
-
-Coming soon
+php vendor/bin/phpunit -c tests/phpunit.xml

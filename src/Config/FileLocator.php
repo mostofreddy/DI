@@ -1,6 +1,6 @@
 <?php
 /**
- * Builder.php
+ * FileLocator.php
  *
  * PHP version 5.4+
  *
@@ -9,36 +9,35 @@
  * with this source code.
  *
  * @category  Di
- * @package   Zendo\Di
+ * @package   Zendo\Di\Config
  * @author    Federico Lozada Mosto <mosto.federico@gmail.com>
  * @copyright 2015 Federico Lozada Mosto <mosto.federico@gmail.com>
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @link      http://www.mostofreddy.com.ar
  */
-namespace Zendo\Di;
-use Zendo\Di\AbstractBuilder;
+namespace Zendo\Di\Config;
+use Symfony\Component\Config\FileLocator as SfFileLocator;
 /**
- * Builder
+ * FileLocator
  *
  * @category  Di
- * @package   Zendo\Di
+ * @package   Zendo\Di\Config
  * @author    Federico Lozada Mosto <mosto.federico@gmail.com>
  * @copyright 2015 Federico Lozada Mosto <mosto.federico@gmail.com>
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @link      http://www.mostofreddy.com.ar
  */
-class Builder extends AbstractBuilder
+class FileLocator extends SfFileLocator
 {
     /**
-     * Get an ContainerBuilder
+     * Reemplaza los paths definidos en el FileLocator
      *
-     * @return ContainerBuilder
+     * @param array $path paths donde ubicar los distintos archivos
+     *
+     * @return void
      */
-    public function get()
+    public function replacePaths($paths = [])
     {
-        return $this->getContainerBuilder();
+        $this->paths = (array) $paths;
     }
-
-
-
 }

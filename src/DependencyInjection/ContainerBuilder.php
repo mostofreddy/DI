@@ -1,6 +1,6 @@
 <?php
 /**
- * Builder.php
+ * ContainerBuilder.php
  *
  * PHP version 5.4+
  *
@@ -9,36 +9,25 @@
  * with this source code.
  *
  * @category  Di
- * @package   Zendo\Di
+ * @package   Zendo\Di\DependencyInjection
  * @author    Federico Lozada Mosto <mosto.federico@gmail.com>
  * @copyright 2015 Federico Lozada Mosto <mosto.federico@gmail.com>
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @link      http://www.mostofreddy.com.ar
  */
-namespace Zendo\Di;
-use Zendo\Di\AbstractBuilder;
+namespace Zendo\Di\DependencyInjection;
+use Symfony\Component\DependencyInjection\ContainerBuilder as SfContainerBuilder;
 /**
- * Builder
+ * ContainerBuilder
  *
  * @category  Di
- * @package   Zendo\Di
+ * @package   Zendo\Di\DependencyInjection
  * @author    Federico Lozada Mosto <mosto.federico@gmail.com>
  * @copyright 2015 Federico Lozada Mosto <mosto.federico@gmail.com>
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @link      http://www.mostofreddy.com.ar
  */
-class Builder extends AbstractBuilder
+class ContainerBuilder extends SfContainerBuilder
 {
-    /**
-     * Get an ContainerBuilder
-     *
-     * @return ContainerBuilder
-     */
-    public function get()
-    {
-        return $this->getContainerBuilder();
-    }
-
-
 
 }

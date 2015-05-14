@@ -1,0 +1,4 @@
+parameters:
+    year: "2001"
+    genero: "Drama"
+    name: "Zendo/Components"

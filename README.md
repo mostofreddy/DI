@@ -5,6 +5,7 @@ Zendo - DI Component
 [![Latest Stable Version](https://poser.pugx.org/zendo/di/v/stable)](https://packagist.org/packages/zendo/di)
 [![Total Downloads](https://poser.pugx.org/zendo/di/downloads)](https://packagist.org/packages/zendo/di)
 [![License](https://poser.pugx.org/zendo/di/license)](https://packagist.org/packages/zendo/di)
+[![Author](https://img.shields.io/badge/author-@mostofreddy-green.svg)](https://mostofreddy.com.ar)
 
 Simple proxy/wrapper del componente __Symfony Dependency Injection__
 

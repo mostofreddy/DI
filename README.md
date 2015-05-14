@@ -2,6 +2,9 @@ Zendo - DI Component
 ====================
 
 [![Build Status](https://travis-ci.org/mostofreddy/DI.svg?branch=master)](https://travis-ci.org/mostofreddy/DI)
+[![Latest Stable Version](https://poser.pugx.org/zendo/di/v/stable)](https://packagist.org/packages/zendo/di)
+[![Total Downloads](https://poser.pugx.org/zendo/di/downloads)](https://packagist.org/packages/zendo/di)
+[![License](https://poser.pugx.org/zendo/di/license)](https://packagist.org/packages/zendo/di)
 
 Simple proxy/wrapper del componente __Symfony Dependency Injection__
 

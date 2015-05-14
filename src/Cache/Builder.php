@@ -145,12 +145,10 @@ class Builder extends AbstractBuilder
 
         if (!$containerConfigCache->isFresh()) {
             $containerBuilder = $this->getContainerBuilder();
-            echo "aaaaaaaaaaaa";
             $this->setCustomParameters($containerBuilder);
             $containerBuilder->compile();
             $this->createCache($containerBuilder, $containerConfigCache);
         }
-
         include_once $file;
         return new $this->classNameCache();
     }

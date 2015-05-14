@@ -29,7 +29,8 @@ $isDebug = true;
 
 $builder = new \Zendo\Di\Cache\Builder();
 $builder->addConfigurationFiles($files)
-    ->addConfigurationDirectories($paths);
+    ->addConfigurationDirectories($paths)
+    ->setIsDebug(true);
 
 $container = $builder->get();
 

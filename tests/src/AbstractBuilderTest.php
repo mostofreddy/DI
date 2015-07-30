@@ -29,27 +29,27 @@ namespace Zendo\Di\Tests;
 class AbstractBuilderTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Test method addConfigurationDirectories
+     * Test method addDirectories
      * 
      * @return void
      */
-    public function testAddConfigurationDirectories()
+    public function testaddDirectories()
     {
         $expected = ['tmp'];
         $stub = $this->getMockForAbstractClass('Zendo\Di\AbstractBuilder');
-        $stub->addConfigurationDirectories($expected);
+        $stub->addDirectories($expected);
         $this->assertAttributeEquals($expected, 'directories', $stub);
     }
     /**
-     * Test method addConfigurationFiles
+     * Test method addFiles
      * 
      * @return void
      */
-    public function testAddConfigurationFiles()
+    public function testaddFiles()
     {
         $expected = ['config.yml'];
         $stub = $this->getMockForAbstractClass('Zendo\Di\AbstractBuilder');
-        $stub->addConfigurationFiles($expected);
+        $stub->addFiles($expected);
         $this->assertAttributeEquals($expected, 'files', $stub);
     }
     /**
@@ -62,8 +62,8 @@ class AbstractBuilderTest extends \PHPUnit_Framework_TestCase
         $files = ['config.yml'];
         $dirs = ['/tmp'];
         $stub = $this->getMockForAbstractClass('Zendo\Di\AbstractBuilder');
-        $stub->addConfigurationFiles($files);
-        $stub->addConfigurationDirectories($dirs);
+        $stub->addFiles($files);
+        $stub->addDirectories($dirs);
         $expected = [
             'directories' => $dirs,
             'files' => $files
@@ -86,23 +86,6 @@ class AbstractBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * Test method getContainerBuilder
      *
-     * @expectedException \InvalidArgumentException
-     * 
-     * @return void
-     */
-    public function testGetContainerBuilderExceptionFileNoFound()
-    {
-        $ref = new \ReflectionMethod('Zendo\Di\AbstractBuilder', 'getContainerBuilder');
-        $ref->setAccessible(true);
-        $stub = $this->getMockForAbstractClass('Zendo\Di\AbstractBuilder');
-        $stub->addConfigurationDirectories(['/tmp']);
-        $stub->addConfigurationFiles(['dummy']);
-        $this->assertInstanceOf('Zendo\Di\DependencyInjection\ContainerBuilder', $ref->invoke($stub));
-    }
-
-    /**
-     * Test method getContainerBuilder
-     *
      * @return void
      */
     public function testGetContainerBuilderFileFound()
@@ -110,8 +93,8 @@ class AbstractBuilderTest extends \PHPUnit_Framework_TestCase
         $ref = new \ReflectionMethod('Zendo\Di\AbstractBuilder', 'getContainerBuilder');
         $ref->setAccessible(true);
         $stub = $this->getMockForAbstractClass('Zendo\Di\AbstractBuilder');
-        $stub->addConfigurationDirectories([realpath(__DIR__.'/../').'/helpers']);
-        $stub->addConfigurationFiles(['config.yml']);
+        $stub->addDirectories([realpath(__DIR__.'/../').'/helpers']);
+        $stub->addFiles(['config.yml']);
         $this->assertInstanceOf('Zendo\Di\DependencyInjection\ContainerBuilder', $ref->invoke($stub));
     }
 }

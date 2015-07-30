@@ -14,6 +14,8 @@
  * @copyright 2015 Federico Lozada Mosto <mosto.federico@gmail.com>
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @link      http://www.mostofreddy.com.ar
+ *
+ * @codeCoverageIgnore
  */
 namespace Zendo\Di\DependencyInjection;
 
@@ -28,6 +30,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder as SfContainerBuilder
  * @copyright 2015 Federico Lozada Mosto <mosto.federico@gmail.com>
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @link      http://www.mostofreddy.com.ar
+ * 
+ * @codeCoverageIgnore
  */
 class ContainerBuilder extends SfContainerBuilder
 {

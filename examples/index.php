@@ -28,14 +28,15 @@ $cacheDir = $rootPath."/examples/cache/";
 $isDebug = true;
 
 $builder = new \Zendo\Di\Cache\Builder();
-$builder->addConfigurationFiles($files)
-    ->addConfigurationDirectories($paths)
-    ->setIsDebug(true);
+$builder->addFiles($files)
+    ->addDirectories($paths)
+    ->setCacheDir($cacheDir)
+    ->setIsDebug($isDebug);
 
 $container = $builder->get();
 
-echo "<pre>".print_r($container->getParameter('name'), true)."</pre>";
-echo "<pre>".print_r($container->getParameter('year'), true)."</pre>";
-echo "<pre>".print_r($container->get('Dummy'), true)."</pre>";
+echo "<pre>NAME: ".print_r($container->getParameter('name'), true)."</pre>";
+echo "<pre>YEAR: ".print_r($container->getParameter('year'), true)."</pre>";
+echo "<pre>DUMMY: ".print_r($container->get('Dummy'), true)."</pre>";
 
 echo "DONE";

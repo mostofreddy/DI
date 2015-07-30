@@ -18,11 +18,12 @@ Funcionalidades
 + Por el momento solo permite archivos de configuracion/servicios en fomato YAML
 + Permite crear una jerarquía de configuración
 + Carga de múltiples archivos y múltiples directorios
++ Carga recursiva de directorios
 
 Versión
 --------
 
-__1.2.0__
+__1.3.0__
 
 Instalación
 -----------

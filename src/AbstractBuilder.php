@@ -18,9 +18,13 @@
 namespace Zendo\Di;
 
 use Zendo\Di\DependencyInjection\ContainerBuilder;
-use Zendo\Di\Config\FileLocator;
+//use Zendo\Di\Config\FileLocator;
 // Symfony - DependencyInjection
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+// Symfony - Config
+use Symfony\Component\Config\FileLocator;
+// Symfony - Finder
+use Symfony\Component\Finder\Finder;
 
 /**
  * AbstractBuilder
@@ -43,7 +47,7 @@ abstract class AbstractBuilder
      *
      * @return self
      */
-    public function addConfigurationDirectories(array $directories)
+    public function addDirectories(array $directories)
     {
         $this->directories = array_merge($this->directories, $directories);
         return $this;
@@ -55,7 +59,7 @@ abstract class AbstractBuilder
      *
      * @return self
      */
-    public function addConfigurationFiles(array $files)
+    public function addFiles(array $files)
     {
         $this->files = array_merge($this->files, $files);
         return $this;
@@ -96,13 +100,26 @@ abstract class AbstractBuilder
      */
     protected function loadConfigurationFiles(ContainerBuilder $containerBuilder)
     {
-        $fileLocator = new FileLocator();
-        $ymlLoader = new YamlFileLoader($containerBuilder, $fileLocator);
-        foreach ($this->directories as $directory) {
-            $fileLocator->replacePaths($directory);
-            foreach ($this->files as $file) {
-                $ymlLoader->load($file);
-            }
+        if (empty($this->directories) || empty($this->files)) {
+            return;
         }
+        $finder = new Finder();
+        $finder->files()->in($this->directories)->name($this->renderFilesRegex());
+
+        $ymlLoader = new YamlFileLoader($containerBuilder, new FileLocator());
+
+        foreach ($finder as $file) {
+            //echo "file: ".$file->getRealpath().PHP_EOL;
+            $ymlLoader->load($file->getRealpath());
+        }
+    }
+    /**
+     * Genera la expresion regular de todos los archivos que se deben buscar
+     * 
+     * @return string
+     */
+    protected function renderFilesRegex()
+    {
+        return '/('.implode("|", $this->files).')/';
     }
 }

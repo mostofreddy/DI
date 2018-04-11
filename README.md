@@ -1,3 +1,5 @@
+**Deprecated**
+
 Zendo - DI Component
 ====================
 
